@@ -7,12 +7,11 @@ This topic describes how to use Altoros Elasticsearch for PCF  after it has been
 
 ##<a id='using'></a> Use Altoros Elasticsearch for PCF with applications
 
-Follow the described procedure to create and bind a service instance to your applications. 
-to your app. 
+Follow the described procedure to create and bind a service instance to your applications.  
 
 ### <a id="list"></a>View the Service
 
-Once the tile has been installed, `a-elasticsearch` and its service plans appear in your Marketplace. Run `cf marketplace` to see the service listing.
+Once the tile has been installed, `a-elasticsearch` and its service plans appear in your Marketplace. Run `cf marketplace` command to see the service listing.
 
 <pre class="terminal">
 $ cf marketplace
@@ -25,17 +24,17 @@ a-elasticsearch   default   Shared Elasticsearch Cluster
 
 ### <a id="create"></a> Create a Service Instance
 
-Use `cf create-service` command to provision a keyspace.
+Use the `cf create-service` command to provision a keyspace.
 
 <pre class="terminal">
 $ cf create-service a-elasticsearch default elasticsearch
 </pre>
 
-Check the service creation status using `cf services` command. It displays the list of all your service instances. To check the status of any specific service instance, run `cf service NAME-OF-YOUR-SERVICE` command.
+Check the service creation status using the `cf services` command. It displays the list of all your service instances. To check the status of any specific service instance, run `cf service a-elasticsearch`.
 
 ### <a id="bind"></a>Bind the Service Instance to an App
 
-After you have created your keyspace, run `cf bind-service` command to bind the service to your app.
+After you have created your keyspace, run the `cf bind-service` command to bind the service to your app.
 
 <pre class="terminal">
 $ cf bind-service sample-app elasticsearch
@@ -47,7 +46,7 @@ To enable access to the service instance, run `cf restage` or `cf restart` to re
 
 ### <a id="obtain"></a>Obtain Service Instance Access Credentials
 
-After you have bound your service instance to your app, you can find the credentials of your ElasticSearch user in the environment variables of the app.
+After you have bound your service instance to your app, you can find the credentials of your Elasticsearch user in the environment variables of the app.
 
 Run `cf env APP-NAME` to display environment variables. The credentials are listed under the <a href="https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES" target="_blank">VCAP_SERVICES</a> key.
 
@@ -98,7 +97,7 @@ Follow the instructions below to unbind your service instance from all apps and 
 
 ### <a id="list2"></a>List All Available Services
 
-Run `cf service` command to list your available services.
+Run the `cf service` command to list available services.
 
 <pre class="terminal">
 $ cf services
